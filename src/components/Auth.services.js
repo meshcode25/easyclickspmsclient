@@ -5,7 +5,7 @@ import axios from "axios";
 //const url= "http://localhost:8000/o/auth/"
 // const url= "http://3.76.31.239:8000/o/auth/" 
 
-const url= "https://property-management-software.herokuapp.com:8000/o/auth/"
+const url= "https://property-management-software.herokuapp.com/o/auth"
 
 // , {headers:{authorization:`bearer${token}`}
    const login=(email, password)=>{
