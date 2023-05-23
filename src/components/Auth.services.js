@@ -5,11 +5,11 @@ import axios from "axios";
 //const url= "http://localhost:8000/o/auth/"
 // const url= "http://3.76.31.239:8000/o/auth/" 
 
-const url= "https://property-management-software.herokuapp.com/o/auth"
+const url= "https://property-management-software.herokuapp.com/o/auth/"
 
 // , {headers:{authorization:`bearer${token}`}
    const login=(email, password)=>{
-        return axios.post(url + "login", {email,password})
+        return axios.post(url + "login/", {email,password})
         .then(
             (response)=>{
                 if(response.data.accesstoken){
