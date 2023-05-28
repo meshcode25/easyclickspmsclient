@@ -9,6 +9,7 @@ const url= "https://property-management-software.herokuapp.com/o/auth/"
 
 // , {headers:{authorization:`bearer${token}`}
    const login=(email, password)=>{
+    console.log(`here is the email and password from auth.services ${email,password}`)
         return axios.post(url + "login/", {email,password})
         .then(
             (response)=>{

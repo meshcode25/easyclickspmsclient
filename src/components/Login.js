@@ -169,6 +169,7 @@ const Login= ()=>{
         form.current.validateAll()
         
         if(checkbtn.current.context._errors.length===0){
+            console.log(email,password)
             login( email, password)
                 .then(
                     (response)=>{
