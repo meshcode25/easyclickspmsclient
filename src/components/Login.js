@@ -169,7 +169,7 @@ const Login= ()=>{
         form.current.validateAll()
         
         if(checkbtn.current.context._errors.length===0){
-            console.log(email,password)
+            // console.log(email,password)
             login( email, password)
                 .then(
                     (response)=>{
@@ -190,6 +190,15 @@ const Login= ()=>{
                              setMessage(response.data.message);
                              setMessageColor(response.data.color)
                              console.log(`inValid email, ${response.data.message} `)
+                            setLoading(false)
+                        }
+                        else if(response.data.type==="unverified"){
+                            console.log(response.data.message)
+                            setTimeout( ()=>{window.location.href=("/dashboard")} ,2000)
+                             window.location.href=("/dashboard");
+                             setMessage(response.data.message);
+                             setMessageColor(response.data.color)
+                             console.log("Unverified Email, but forgiven for now Enjoy")
                             setLoading(false)
                         }
                         else{

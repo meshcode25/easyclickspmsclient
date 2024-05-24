@@ -474,31 +474,36 @@ const Sidebar = () => {
     //    setaccessToken(token);
     //  }
 
-  useEffect(()=>{
-    if(token===null){
-      //setloggedIn(false)
-       window.location.href="/signin"
-       console.log("No Cashed cookies")
-    } 
-    else{
-      if(token.user.email){
-        setloggedIn(true);
-        email = token.user.email;
 
-        name= email.substring(0, email.lastIndexOf("@"))
-        setuserName(name)
+
+  // ********I commented out this in order to acess the dashboard, should be uncommentd for the programming progerss later
+  // useEffect(()=>{
+  //   if(token===null){
+  //     //setloggedIn(false)
+  //     //  window.location.href="/signin"
+  //       window.location.href="/"
+
+  //     console.log("No Cashed cookies")
+  //   } 
+  //   else{
+  //     if(token.user.email){
+  //       setloggedIn(true);
+  //       email = token.user.email;
+
+  //       name= email.substring(0, email.lastIndexOf("@"))
+  //       setuserName(name)
     
-         console.log("show isLogged In" + isloggedin)
+  //        console.log("show isLogged In" + isloggedin)
         
-      }
-      else{
-    //    setloggedIn(false)
-         console.log("not logged In")
-      }
-    }
+  //     }
+  //     else{
+  //   //    setloggedIn(false)
+  //        console.log("not logged In")
+  //     }
+  //   }
     
 
-  }, [isloggedin])
+  // }, [isloggedin])
   
   
   console.log("show isLogged In?" + isloggedin)
