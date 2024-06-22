@@ -262,6 +262,10 @@ const signup= ()=>{
                                 <option value="REAL ESTATE AGENCY">Real Estate Agency</option>                      
                                 <option  value="TENANT">Tenant</option>
                                 <option value="LANDLORD">Land Lord</option>
+                                <option value="SERVICE PROVIDER">Real Estate Agency</option>                      
+                                <option  value="CARETAKER">Tenant</option>
+                              
+
                             </Select>
                     </Rolediv>
                     <Passwordiv>

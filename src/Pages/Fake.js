@@ -9,7 +9,7 @@ import styled from "styled-components"
 //
 //</div>
 
-const image= require ("../components/PRESTASHOP12.png")
+const image= require ("../easyclicksimages/PRESTASHOP12.png")
 
 const Div= styled.div`
     margin:3rem;

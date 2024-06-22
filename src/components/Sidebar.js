@@ -15,7 +15,7 @@ import {FaUserCircle} from "react-icons/fa"
 import {useJwt, decodeToken} from "react-jwt";
 // import env from "react-dotenv"
 // const logo= require ("./easyclickslogo.png")
-const logo= require ("./easy4.png")
+const logo= require ("../easyclicksimages/easy4.png")
 
 const King= styled.div`
 position:fixed;
