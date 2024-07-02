@@ -396,6 +396,8 @@ const Sidebar = () => {
   const [submenu, setSubmenu]= useState()
   const [username, setuserName]=useState()
   const [accesstoken, setaccessToken]=useState();
+  const [refreshToken, setRefreshToken]=useState();
+
   // const [hidesubmenu, sethidesubmenu ]= useState(true);
 
   const [isloggedin, setloggedIn]= useState(false);
@@ -417,7 +419,9 @@ const Sidebar = () => {
 
 
     const handleLogout= ()=>{
-      localStorage.removeItem("accesstoken")
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("refreshToken");
+
       window.location.href="/signin"
       setloggedIn(false)
     }
@@ -455,55 +459,75 @@ const Sidebar = () => {
   }
         
   
-    const logedin=(localStorage.getItem("user"))
-    console.log(logedin);
-    const token=decodeToken(logedin)
-      // jwt.verify(logedin, env.SECRET);
+    const logedin=(localStorage.getItem("accessToken"))
+    // const accesstokenfromverify=(localStorage.getItem("accessToken"))
+    const refreshtoken=(localStorage.getItem("refreshToken"))
 
-    console.log(token)
+    const decodeduser=decodeToken(logedin)
+    // const decodedaccesstoken=decodeToken(accesstokenfromverify)
+    const decodedrefreshtoken=decodeToken(refreshtoken)
+    
+    
+    
+    
+    // jwt.verify(logedin, env.SECRET);
+    
+    console.log(logedin);
+    console.log(decodeduser)
+    // console.log(decodedaccesstoken);
+    console.log(decodedrefreshtoken);
+
     let name;
     let email;
 
-    //  if(token===null){
+    //  if(logedin===null){
     //      setaccessToken();
     //      setloggedIn(false)
     //        window.location.href="/signin"
     //        console.log("No Cashed cookies")
     //  } 
     //  else{
-    //    setaccessToken(token);
+    //    setaccessToken(logedin);
+    //   //  setloggedIn(true)
+
     //  }
 
 
 
   // ********I commented out this in order to acess the dashboard, should be uncommentd for the programming progerss later
-  // useEffect(()=>{
-  //   if(token===null){
-  //     //setloggedIn(false)
-  //     //  window.location.href="/signin"
-  //       window.location.href="/"
 
-  //     console.log("No Cashed cookies")
-  //   } 
-  //   else{
-  //     if(token.user.email){
-  //       setloggedIn(true);
-  //       email = token.user.email;
+  useEffect(()=>{
+    if(logedin===null){
+      setloggedIn(false)
+       window.location.href="/signin"
+        // window.location.href="/"
 
-  //       name= email.substring(0, email.lastIndexOf("@"))
-  //       setuserName(name)
+      console.log("No Cashed cookies")
+    } 
+    else{
+      console.log("here is the decoded email ")
+      console.log(decodeduser.user.email);
+      console.log(decodeduser)
+
+      if(decodeduser.user.email){
+        console.log(decodeduser.user.email);
+        setloggedIn(true);
+        email = decodeduser.user.email;
+
+        name= email.substring(0, email.lastIndexOf("@"))
+        setuserName(name)
     
-  //        console.log("show isLogged In" + isloggedin)
+         console.log("show isLogged In" + isloggedin)
         
-  //     }
-  //     else{
-  //   //    setloggedIn(false)
-  //        console.log("not logged In")
-  //     }
-  //   }
+      }
+      else{
+    //    setloggedIn(false)
+         console.log("not logged In")
+      }
+    }
     
 
-  // }, [isloggedin])
+  }, [isloggedin])
   
   
   console.log("show isLogged In?" + isloggedin)

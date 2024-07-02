@@ -1,10 +1,10 @@
 import axios from "axios";
 
 
-import api from './axiosconfig';
+// import api from './axiosconfig';
 // import { setTokens, clearTokens } from './tokenUtils';
 
-const url= "/o/auth/"
+const url= "http://localhost:8000/o/auth/"
     // const url= "http://3.76.31.239:8000/o/auth/" 
 
     //const url= "https://property-management-software.herokuapp.com/o/auth/"
@@ -13,13 +13,15 @@ const url= "/o/auth/"
    
     const login=(email, password)=>{
     console.log(`here is the email and password from auth.services ${email,password}`)
-        return axios.post(api + url+ "login/", {email,password})
+        return axios.post(url + "login/", {email,password})
         .then(
             (response)=>{
                 if(response.data.accesstoken){
 
                     console.log("here is the token you have been waiting and secretly fearing " + response.data.accesstoken)
-                    localStorage.setItem("user", JSON.stringify(response.data.accesstoken))
+                    localStorage.setItem("accessToken", JSON.stringify(response.data.accesstoken))
+                    localStorage.setItem("refreshToken", JSON.stringify(response.data.refreshtoken))
+
                     console.log(response.data.accesstoken)
                     console.log(response.data)
                     return response
@@ -31,7 +33,7 @@ const url= "/o/auth/"
                     return response
 
                 }
-            },
+            }
         
         
         )
@@ -39,7 +41,7 @@ const url= "/o/auth/"
 
 
     const passwordreset=(email, password)=>{
-        return axios.post(api + url + "passwordreset", {email,password})
+        return axios.post(url + "passwordreset", {email,password})
         .then(
             (response)=>{
                 if(response.accesstoken){
@@ -60,7 +62,7 @@ const url= "/o/auth/"
     }
 
     export default function(email,role,password){
-        return axios.post(api + url+ "signup", {email, role, password})
+        return axios.post(url+ "signup", {email, role, password})
             .then((response)=>{
                 console.log(response.type)
                 return response
@@ -78,7 +80,7 @@ const url= "/o/auth/"
     }
 
     const verify= (verificationcode)=>{
-       return axios.get(api + url+ `verify/${verificationcode}` ).then((response)=>{
+       return axios.get(url+ `verify/${verificationcode}` ).then((response)=>{
             console.log(response)
             return response
         }).catch(err=> console.error(err))

@@ -314,7 +314,7 @@ function Addpropstep8 (){
         setDisabled(false);
         setDisplaypreview(true);
         console.log(outsidephoto);
-        setPath("/properties/list-property/step7");
+        setPath("/properties/list-property/step9");
         
       }else{
         setDisabled(true);

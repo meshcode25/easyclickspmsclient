@@ -221,7 +221,7 @@ function Addpropstep1 (){
 
     },
     {
-      value:"commericialproperty",
+      value:"commericial Property",
       label:"Commercial Property",
 
     },{

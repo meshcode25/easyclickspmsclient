@@ -20,6 +20,8 @@ import Addpropstep5 from "./Pages/Addpropstep5";
 import Addpropstep6 from "./Pages/Addpropstep6";
 import Addpropstep7 from "./Pages/Addpropstep7";
 import Addpropstep8 from "./Pages/Addpropstep8";
+import Addpropstep9 from "./Pages/Addpropstep9";
+
 import Listallproperties from "./Pages/Listallproperties";
 
 // import Nameless from "./Pages/nameless"
@@ -52,6 +54,9 @@ const App = () => {
                   <Route path="/properties/list-property/step6" element={<Addpropstep6 />} />  
                   <Route path="/properties/list-property/step7" element={<Addpropstep7 />} />   
                   <Route path="/properties/list-property/step8" element={<Addpropstep8 />} />   
+                  <Route path="/properties/list-property/step9" element={<Addpropstep9 />} />   
+
+
                   {/* <Route path="/properties/list-property/step7" element={<Addpropstep11 />} />   
                   <Route path="/properties/list-property/step7" element={<Addpropstep11 />} />            
                   <Route index element={<Addproperty2 />  } />    */}

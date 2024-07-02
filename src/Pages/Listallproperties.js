@@ -283,11 +283,11 @@ function Listallproperties (){
         <Listpropdiv  sidebar={side? 1:0} >
 
             <Listbody  sidebar={side? 1:0}>
-                              {alllinks.map((link, index)=>{
-                              
-                              return(
-                                <Proptyp  color={color} number={index} onClick={()=>{setProptype(link.value); bgColorChange(index)} } to="#"  key={index}>{link.label}</Proptyp>    
-                              )})}   
+                {alllinks.map((link, index)=>{
+                
+                return(
+                  <Proptyp  color={color} number={index} onClick={()=>{setProptype(link.value); bgColorChange(index)} } to="#"  key={index}>{link.label}</Proptyp>    
+                )})}   
             </Listbody>
         </Listpropdiv>    
       </div>

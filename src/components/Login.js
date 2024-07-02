@@ -175,7 +175,7 @@ const Login= ()=>{
                     (response)=>{
                         if(response.data.type==="successlogin"){
                             console.log(response.data.message)
-                            setTimeout( ()=>{window.location.href=("/dashboard")} ,2000)
+                            setTimeout( ()=>{window.location.href=("/dashboard")} ,4000)
                              window.location.href=("/dashboard");
                              setMessage(response.data.message);
                              setMessageColor(response.data.color)
@@ -185,7 +185,7 @@ const Login= ()=>{
                         }
                         else if(response.data.type==="invaliduser"){
                             console.log(response.data.message)
-                            setTimeout( ()=>{window.location.href=("/signup")} ,4000)
+                            setTimeout( ()=>{window.location.href=("/signup")} ,400)
                             // window.location.href=("/dashboard");
                              setMessage(response.data.message);
                              setMessageColor(response.data.color)
@@ -194,8 +194,8 @@ const Login= ()=>{
                         }
                         else if(response.data.type==="unverified"){
                             console.log(response.data.message)
-                            setTimeout( ()=>{window.location.href=("/dashboard")} ,2000)
-                             window.location.href=("/dashboard");
+                            setTimeout( ()=>{window.location.href=("/login")} ,4000)
+                            //  window.location.href=("/dashboard");
                              setMessage(response.data.message);
                              setMessageColor(response.data.color)
                              console.log("Unverified Email, but forgiven for now Enjoy")
@@ -207,6 +207,7 @@ const Login= ()=>{
                              setMessageColor(response.data.color)
                             setLoading(false)
                             console.log("Show this invalid email ")
+                            setTimeout( ()=>{window.location.href=("/signup")} ,4000)
 
                         }
                    

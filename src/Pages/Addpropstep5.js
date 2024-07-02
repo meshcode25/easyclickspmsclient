@@ -106,7 +106,7 @@ background-color:${({disabled})=> disabled ? "#F5F5F5": "blue" };
 font-weight:${({sidebar})=> sidebar ? "600": "600" };
 font-size:${({sidebar})=> sidebar ? "1.2rem": "1.2rem" };
 color:${({disabled})=> disabled ? "blue": "white" };
-margin:1rem;
+margin:1rem 0.3rem 1rem 0.3rem;
 border-radius:6px;
 border:none;
 &:hover{
