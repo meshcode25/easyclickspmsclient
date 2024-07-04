@@ -189,13 +189,13 @@ const Nuumber=(value)=>{
 
 const IsEmail= (value)=>{
     if(!isEmail(value))
-    return <div style={{backgroundColor:"red", color:"white", padding:"0.25rem 0", margin: "0.25rem auto", width:"80%", }}>Enter a valid Email</div>
+    return <div style={{backgroundColor:"red", color:"white", padding:"0.25rem 0", margin: "0.25rem auto", width:"95%", }}>Enter a valid Email</div>
 }
 
 
 const IsMobilePhone= (value)=>{
     if(!isMobilePhone(value))
-    return <div style={{backgroundColor:"red", color:"white", padding:"0.25rem 0", margin: "0.25rem auto", width:"80%", }}>Enter a valid Email</div>
+    return <div style={{backgroundColor:"red", color:"white", padding:"0.25rem 0", margin: "0.25rem auto", width:"95%", }}>Enter a valid Phone Number</div>
 }
 
 const Color=()=>{
@@ -209,9 +209,24 @@ function Addpropstep9 (){
   let landlordgmail;
 
 
+
+  // localStorage.removeItem("landlordname");
+  // localStorage.removeItem("landlordphonenumber");
+  // localStorage.removeItem("landlordemail");
+
     let storedlandlordname=JSON.parse(localStorage.getItem("landlordname"));
     let storedlandlordphonenumber=JSON.parse(localStorage.getItem("landlordphonenumber"));
     let storedlandlordemail=JSON.parse(localStorage.getItem("landlordemail"));
+
+
+
+
+
+
+
+
+
+
 
     console.log(storedlandlordname);
     console.log(storedlandlordphonenumber)
@@ -271,12 +286,12 @@ function Addpropstep9 (){
 
 
     useEffect(()=>{
-    if(landlordname && landlordemail && landlordphonenumber && !isNaN(landlordemail) && !isNaN(landlordphonenumber) && landlordphonenumber<1000 && landlordemail<1000){
+    if(landlordnamee && landlordgmail && landlordmobilenumber && isNaN(landlordnamee) && isNaN(landlordgmail) && !isNaN(landlordmobilenumber)){
         setDisabled(false);
-        console.log(landlordname);
-        console.log(landlordemail);
-        console.log(landlordphonenumber);
-        setPath("/properties/list-property/step8");
+        console.log(landlordnamee);
+        console.log(landlordgmail);
+        console.log(landlordmobilenumber);
+        setPath("/properties/list-property/step10");
         
     }else{
         setDisabled(true);
@@ -284,7 +299,7 @@ function Addpropstep9 (){
         
     }
 
-    }, [landlordname, landlordemail, landlordphonenumber]);
+    }, [landlordnamee, landlordgmail, landlordmobilenumber]);
 
 
 
@@ -324,8 +339,8 @@ function Addpropstep9 (){
           "prop":landlordemail
         }
         localStorage.setItem("landlordname", JSON.stringify({savedlandlordname}))
-        localStorage.setItem("landlordemail", JSON.stringify({savedlandlordphonenumber}))
-        localStorage.setItem("landlordphonenumber", JSON.stringify({savedlandlordemail}))
+        localStorage.setItem("landlordemail", JSON.stringify({savedlandlordemail}))
+        localStorage.setItem("landlordphonenumber", JSON.stringify({savedlandlordphonenumber}))
         // localStorage.setItem("propertydetails", JSON.stringify({saved}))
       
     

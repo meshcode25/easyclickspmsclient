@@ -246,9 +246,9 @@ function Addpropstep6 (){
         { value:  "4bedrooms" , label:  '4 Bedrooms'  },
         { value:  "5bedrooms",  label:  '5 Bedrooms'  },
         { value:  "6bedrooms",  label:  '6 Bedrooms'  },
-        { value:   "7bedrooms", label:  '7 Bedrooms'  },                
-        { value:  "8bedrooms",  label:  "8 Bedrooms"  },
-        { value:   "8bedrooms", label:   '8+ Bedrooms' },
+        { value:  "7bedrooms", label:   '7 Bedrooms'  },                
+        { value:  "8bedrooms",  label:   "8 Bedrooms"  },
+        { value:  "8+ bedrooms", label:  '8+ Bedrooms' },
     ];
 
     const handleClick=(index, value)=>{
