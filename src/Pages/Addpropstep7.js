@@ -7,6 +7,8 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 // import {Fake} from "./Fake"
 
+import { createProperty } from '../components/apicalls';
+
 
 const Breadcrumbs=styled.div`
 position:fixed;
@@ -258,7 +260,8 @@ function Addpropstep7 (){
           console.log(propertyname);
           console.log(totalunits);
           console.log(availableunits);
-          setPath("/properties/list-property/step8");
+          // setPath("/properties/list-property/step8");
+          // setPath("/properties/list-property/step8");
           
         }else{
           setDisabled(true);
@@ -309,12 +312,17 @@ function Addpropstep7 (){
         localStorage.setItem("totalunits", JSON.stringify({savedtotunits}))
         localStorage.setItem("availableunits", JSON.stringify({savedavaiunits}))
         // localStorage.setItem("propertydetails", JSON.stringify({saved}))
-      
-        console.log("Die Inhanten liefern Knopfen is functionieren. Schrift 7 ")
-        console.log(JSON.parse(localStorage.getItem("propertyname")))       
-        console.log(JSON.parse(localStorage.getItem("availableunits")))       
-        console.log(JSON.parse(localStorage.getItem("totalunits")))       
+    
+      console.log("Die Inhanten liefern Knopfen is functionieren. Schrift 7 ")
+      console.log(JSON.parse(localStorage.getItem("propertyname")))       
+      console.log(JSON.parse(localStorage.getItem("availableunits")))       
+      console.log(JSON.parse(localStorage.getItem("totalunits")))       
 
+      console.log(propertyname);
+      console.log(totalunits);
+      console.log(availableunits);
+
+      createProperty(propertyname,totalunits,availableunits);
 
 
       }

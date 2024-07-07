@@ -9,7 +9,8 @@ import {isEmail} from "validator"
 import {isMobilePhone} from 'validator';
 
 // import {Fake} from "./Fake"
-
+// import { createProperty } from '../components/apicalls';
+import { createLandlord } from '../components/apicalls';
 
 const Breadcrumbs=styled.div`
 position:fixed;
@@ -347,12 +348,12 @@ function Addpropstep9 (){
 
 
 
-        console.log("Die Inhanten liefern Knopfen is functionieren. Schrift 9 ")
-        console.log(JSON.parse(localStorage.getItem("landlordname")))       
-        console.log(JSON.parse(localStorage.getItem("landlordphonenumber")))       
-        console.log(JSON.parse(localStorage.getItem("landlordemail")))       
+      console.log("Die Inhanten liefern Knopfen is functionieren. Schrift 9 ")
+      console.log(JSON.parse(localStorage.getItem("landlordname")))       
+      console.log(JSON.parse(localStorage.getItem("landlordphonenumber")))       
+      console.log(JSON.parse(localStorage.getItem("landlordemail")))       
 
-
+      createLandlord(landlordname,landlordemail,landlordphonenumber);
 
       }
   } 

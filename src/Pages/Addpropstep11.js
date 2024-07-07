@@ -359,6 +359,66 @@ function Addpropstep11 (){
         console.log("Counldn't save the draft, Disabled is equal to Button Disabled")
       }
 
+      // localStorage.setItem("proptyp", JSON.stringify({saved}))
+      // localStorage.setItem("listingpurpose", JSON.stringify({saved}))
+      // localStorage.setItem("internalfeatures", JSON.stringify({saved}))
+      // localStorage.setItem("externalfeatures", JSON.stringify({saved}))
+      // localStorage.setItem("nearbyfeatures", JSON.stringify({saved}))
+      // localStorage.setItem("roomsperunit", JSON.stringify({saved}))
+
+
+      // localStorage.setItem("propertyname", JSON.stringify({savedpropname}))
+      // localStorage.setItem("totalunits", JSON.stringify({savedtotunits}))
+      // localStorage.setItem("availableunits", JSON.stringify({savedavaiunits}))
+
+
+      // localStorage.setItem("landlordname", JSON.stringify({savedlandlordname}))
+      // localStorage.setItem("landlordemail", JSON.stringify({savedlandlordemail}))
+      // localStorage.setItem("landlordphonenumber", JSON.stringify({savedlandlordphonenumber}))
+
+
+
+      // localStorage.setItem("caretakername", JSON.stringify({savedcaretakername}))
+      // localStorage.setItem("caretakeremail", JSON.stringify({savedcaretakeremail}))
+      // localStorage.setItem("caretakerphonenumber", JSON.stringify({savedcaretakerphonenumber}))
+
+      const proptype=JSON.parse(localStorage.getItem("proptyp"));
+      const listingpurpose=JSON.parse(localStorage.getItem("listingpurpose"));
+      const internalfeatures=JSON.parse(localStorage.getItem("internalfeatures"));
+      const externalfeatures=JSON.parse(localStorage.getItem("externalfeatures"));
+      const nearbyfeatures=JSON.parse(localStorage.getItem("nearbyfeatures"));
+      const roomsperunit=JSON.parse(localStorage.getItem("roomsperunit"));
+      
+      const propertyname=JSON.parse(localStorage.getItem("propertyname"));
+      const totalunits=JSON.parse(localStorage.getItem("totalunits"));
+      const availableunits=JSON.parse(localStorage.getItem("availableunits"));
+
+      const landlordname=JSON.parse(localStorage.getItem("landlordname"));
+      const landlordemail=JSON.parse(localStorage.getItem("landlordemail"));
+      const landlordphonenumber=JSON.parse(localStorage.getItem("landlordphonenumber"));
+
+      const caretakername=JSON.parse(localStorage.getItem("caretakername"));
+      const caretakeremail=JSON.parse(localStorage.getItem("caretakeremail"));
+      const caretakerphonenumber=JSON.parse(localStorage.getItem("caretakerphonenumber"));
+
+      console.log(proptype);
+      console.log(listingpurpose)
+      console.log(internalfeatures);
+      console.log(externalfeatures);
+      console.log(nearbyfeatures);
+      console.log(roomsperunit);
+      console.log(propertyname);
+      console.log(totalunits);
+      console.log(availableunits);
+      console.log(landlordname);
+      console.log(landlordemail);
+      console.log(landlordphonenumber);
+      console.log(caretakername);
+      console.log(caretakeremail);
+      console.log(caretakerphonenumber);
+
+
+
 
 
   }
