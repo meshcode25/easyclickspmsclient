@@ -243,10 +243,10 @@ function Addpropstep9 (){
     }
     else{
       
-    console.log("storedlandlordname.savedlandlordname.prop =  " + storedlandlordname.savedlandlordname.prop, "storedlandlordphonenumber.savedlandlordphonenumber.prop=  " + storedlandlordphonenumber.savedlandlordphonenumber.prop, "storedlandlordemail.savedlandlordemail.prop=  " + storedlandlordemail.savedlandlordemail.prop)
-    landlordnamee=storedlandlordname.savedlandlordname.prop;
-    landlordmobilenumber=storedlandlordphonenumber.savedlandlordphonenumber.prop;
-    landlordgmail=storedlandlordemail.savedlandlordemail.prop;
+    // console.log("storedlandlordname.savedlandlordname.prop =  " + storedlandlordname.savedlandlordname.prop, "storedlandlordphonenumber.savedlandlordphonenumber.prop=  " + storedlandlordphonenumber.savedlandlordphonenumber.prop, "storedlandlordemail.savedlandlordemail.prop=  " + storedlandlordemail.savedlandlordemail.prop)
+    landlordnamee=storedlandlordname.prop;
+    landlordmobilenumber=storedlandlordphonenumber.prop;
+    landlordgmail=storedlandlordemail.prop;
 
       
       console.log(landlordnamee);
@@ -287,11 +287,11 @@ function Addpropstep9 (){
 
 
     useEffect(()=>{
-    if(landlordnamee && landlordgmail && landlordmobilenumber && isNaN(landlordnamee) && isNaN(landlordgmail) && !isNaN(landlordmobilenumber)){
+    if(landlordname && landlordemail && landlordphonenumber && isNaN(landlordname) && isNaN(landlordemail) && !isNaN(landlordphonenumber)){
         setDisabled(false);
-        console.log(landlordnamee);
-        console.log(landlordgmail);
-        console.log(landlordmobilenumber);
+        console.log(landlordname);
+        console.log(landlordemail);
+        console.log(landlordphonenumber);
         setPath("/properties/list-property/step10");
         
     }else{
@@ -300,7 +300,7 @@ function Addpropstep9 (){
         
     }
 
-    }, [landlordnamee, landlordgmail, landlordmobilenumber]);
+    }, [landlordname, landlordemail, landlordphonenumber]);
 
 
 
@@ -339,9 +339,9 @@ function Addpropstep9 (){
         const savedlandlordemail={
           "prop":landlordemail
         }
-        localStorage.setItem("landlordname", JSON.stringify({savedlandlordname}))
-        localStorage.setItem("landlordemail", JSON.stringify({savedlandlordemail}))
-        localStorage.setItem("landlordphonenumber", JSON.stringify({savedlandlordphonenumber}))
+        localStorage.setItem("landlordname", JSON.stringify(savedlandlordname))
+        localStorage.setItem("landlordemail", JSON.stringify(savedlandlordemail))
+        localStorage.setItem("landlordphonenumber", JSON.stringify(savedlandlordphonenumber))
         // localStorage.setItem("propertydetails", JSON.stringify({saved}))
       
     
@@ -373,9 +373,9 @@ function Addpropstep9 (){
         "prop":landlordemail
       }
 
-    localStorage.setItem("landlordname", JSON.stringify({savedlandlordname}))
-    localStorage.setItem("landlordemail", JSON.stringify({savedlandlordemail}))
-    localStorage.setItem("landlordphonenumber", JSON.stringify({savedlandlordphonenumber}))
+    localStorage.setItem("landlordname", JSON.stringify(savedlandlordname))
+    localStorage.setItem("landlordemail", JSON.stringify(savedlandlordemail))
+    localStorage.setItem("landlordphonenumber", JSON.stringify(savedlandlordphonenumber))
     
     
       console.log("Die Inhanten liefern Knopfen is functionieren. Schrift 6 Back ")

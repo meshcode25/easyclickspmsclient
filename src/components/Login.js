@@ -194,7 +194,7 @@ const Login= ()=>{
                         }
                         else if(response.data.type==="unverified"){
                             console.log(response.data.message)
-                            setTimeout( ()=>{window.location.href=("/login")} ,4000)
+                            setTimeout( ()=>{window.location.href=("/signin")} ,4000)
                             //  window.location.href=("/dashboard");
                              setMessage(response.data.message);
                              setMessageColor(response.data.color)

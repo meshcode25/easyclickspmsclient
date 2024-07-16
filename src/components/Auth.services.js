@@ -19,8 +19,8 @@ const url= "http://localhost:8000/o/auth/"
                 if(response.data.accesstoken){
 
                     console.log("here is the token you have been waiting and secretly fearing " + response.data.accesstoken)
-                    localStorage.setItem("accessToken", JSON.stringify(response.data.accesstoken))
-                    localStorage.setItem("refreshToken", JSON.stringify(response.data.refreshtoken))
+                    localStorage.setItem("accessToken", response.data.accesstoken)
+                    localStorage.setItem("refreshToken", response.data.refreshtoken)
 
                     console.log(response.data.accesstoken)
                     console.log(response.data)

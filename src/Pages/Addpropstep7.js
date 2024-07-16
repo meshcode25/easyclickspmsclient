@@ -260,7 +260,7 @@ function Addpropstep7 (){
           console.log(propertyname);
           console.log(totalunits);
           console.log(availableunits);
-          // setPath("/properties/list-property/step8");
+          setPath("/properties/list-property/step8");
           // setPath("/properties/list-property/step8");
           
         }else{
@@ -322,8 +322,15 @@ function Addpropstep7 (){
       console.log(totalunits);
       console.log(availableunits);
 
-      createProperty(propertyname,totalunits,availableunits);
+      function getResponse(){
+        const response=createProperty(propertyname,totalunits,availableunits).then((results)=>{
+          console.log(results);
+        });
 
+          return response;
+      }
+      
+      getResponse();
 
       }
   } 

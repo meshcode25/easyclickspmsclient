@@ -8,6 +8,7 @@ import CheckButton from "react-validation/build/button";
 import {isEmail} from "validator"
 import {isMobilePhone} from 'validator';
 
+import { createCaretaker } from '../components/apicalls';
 // import {Fake} from "./Fake"
 
 
@@ -225,7 +226,7 @@ function Addpropstep10 (){
     console.log(storedcaretakeremail)
     // storedcaretakername
     // console.log(storedpropname.savedpropname.prop);
-    // if(storedpropname.savedpropname.prop===null && storedpropname.savedavaiunits.prop===null && storedtotunits.savedtotunits.prop===null){
+
     if(storedcaretakername===null && storedcaretakerphonenumber===null && storedcaretakeremail===null){
         caretakernamee=""
         caretakermobilenumber=""
@@ -234,10 +235,9 @@ function Addpropstep10 (){
     }
     else{
       
-    console.log("storedcaretakername.savedcaretakername.prop =  " + storedcaretakername.savedcaretakername.prop, "storedcaretakerphonenumber.savedcaretakerphonenumber.prop=  " + storedcaretakerphonenumber.savedcaretakerphonenumber.prop, "storedcaretakeremail.savedcaretakeremail.prop=  " + storedcaretakeremail.savedcaretakeremail.prop)
-    caretakernamee=storedcaretakername.savedcaretakername.prop;
-    caretakermobilenumber=storedcaretakerphonenumber.savedcaretakerphonenumber.prop;
-    caretakergmail=storedcaretakeremail.savedcaretakeremail.prop;
+    caretakernamee=storedcaretakername.prop;
+    caretakermobilenumber=storedcaretakerphonenumber.prop;
+    caretakergmail=storedcaretakeremail.prop;
 
       
       console.log(caretakernamee);
@@ -278,7 +278,7 @@ function Addpropstep10 (){
 
 
     useEffect(()=>{
-    if(caretakernamee && caretakergmail && caretakermobilenumber && isNaN(caretakergmail) && isNaN(caretakernamee) && !isNaN(caretakermobilenumber)){
+    if(caretakername && caretakeremail && caretakerphonenumber && isNaN(caretakeremail) && isNaN(caretakername) && !isNaN(caretakerphonenumber)){
         setDisabled(false);
         console.log(caretakername);
         console.log(caretakeremail);
@@ -291,7 +291,7 @@ function Addpropstep10 (){
         
     }
 
-    }, [caretakernamee, caretakergmail, caretakermobilenumber]);
+    }, [caretakername, caretakeremail, caretakerphonenumber]);
 
 
 
@@ -330,21 +330,18 @@ function Addpropstep10 (){
         const savedcaretakeremail={
           "prop":caretakeremail
         }
-        localStorage.setItem("caretakername", JSON.stringify({savedcaretakername}))
-        localStorage.setItem("caretakeremail", JSON.stringify({savedcaretakeremail}))
-        localStorage.setItem("caretakerphonenumber", JSON.stringify({savedcaretakerphonenumber}))
+        localStorage.setItem("caretakername", JSON.stringify(savedcaretakername))
+        localStorage.setItem("caretakeremail", JSON.stringify(savedcaretakeremail))
+        localStorage.setItem("caretakerphonenumber", JSON.stringify(savedcaretakerphonenumber))
         // localStorage.setItem("propertydetails", JSON.stringify({saved}))
       
     
-
-
-
         console.log("Die Inhanten liefern Knopfen is functionieren. Schrift 9 ")
         console.log(JSON.parse(localStorage.getItem("caretakername")))       
         console.log(JSON.parse(localStorage.getItem("caretakerphonenumber")))       
         console.log(JSON.parse(localStorage.getItem("caretakeremail")))       
 
-
+        createCaretaker(caretakername, caretakeremail,caretakerphonenumber);
 
       }
   } 
@@ -364,9 +361,9 @@ function Addpropstep10 (){
         "prop":caretakeremail
       }
 
-    localStorage.setItem("caretakername", JSON.stringify({savedcaretakername}))
-    localStorage.setItem("caretakeremail", JSON.stringify({savedcaretakeremail}))
-    localStorage.setItem("caretakerphonenumber", JSON.stringify({savedcaretakerphonenumber}))
+    localStorage.setItem("caretakername", JSON.stringify(savedcaretakername))
+    localStorage.setItem("caretakeremail", JSON.stringify(savedcaretakeremail))
+    localStorage.setItem("caretakerphonenumber", JSON.stringify(savedcaretakerphonenumber))
     
     
       console.log("Die Inhanten liefern Knopfen is functionieren. Schrift 6 Back ")
