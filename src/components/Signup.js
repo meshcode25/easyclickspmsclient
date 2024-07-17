@@ -260,10 +260,10 @@ const signup= ()=>{
                             <Select type="select" value={role} onChange={roleChange} validations={[Required]} style={{width:"80%", height:"2rem", borderRadius:"10px", border:"none", fontSize:"1.2rem", backgroundColor:"white", color:"black"}}>
                                 <option value="">Select Your Role</option>
                                 <option value="REAL ESTATE AGENCY">Real Estate Agency</option>                      
-                                <option  value="TENANT">Tenant</option>
                                 <option value="LANDLORD">Land Lord</option>
-                                <option value="SERVICE PROVIDER">Real Estate Agency</option>                      
-                                <option  value="CARETAKER">Tenant</option>
+                                <option  value="CARETAKER">Caretaker</option>
+                                <option value="SERVICE PROVIDER">Serice Provider </option>                      
+                                <option  value="TENANT">Tenant</option>
                               
 
                             </Select>
