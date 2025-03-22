@@ -1,9 +1,13 @@
 import React from "react"
-import { RiEyeCloseFill } from "react-icons/ri"
+// import { RiEyeCloseFill } from "react-icons/ri"
 import { useParams } from "react-router-dom"
-//  import styled from "styled-components"
+//  import styled from "@emotion/styled"
   import {verify} from "./Auth.services"
-  import {getAccessToken,getRefreshToken,setTokens,clearTokens} from "./tokenutils"
+//   import {getAccessToken,getRefreshToken,setTokens,clearTokens} from "./tokenutils"
+import {setTokens} from "./tokenutils"
+
+
+
 // import { accessToken } from "mapbox-gl"
 
 const VerifyEmail=()=>{

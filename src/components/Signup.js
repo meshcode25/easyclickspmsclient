@@ -8,7 +8,7 @@ import {isEmail} from "validator"
 import {FaUserCircle} from "react-icons/fa"
 import LoadingIcons from "react-loading-icons"
 import signupservice from "./Auth.services"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import * as BsIcons from "react-icons/bs"
 
 // background-color:#F0ECF5;
@@ -141,7 +141,7 @@ const IsEmail= (value)=>{
 }
 
 
-const signup= ()=>{
+export const Signup= ()=>{
     const checkbtn=useRef()
     const form= useRef()
 
@@ -314,4 +314,4 @@ const signup= ()=>{
 }
 
 
-export default signup
+// export default signup

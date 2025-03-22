@@ -1,11 +1,11 @@
 import React from 'react'
 
 import {Link} from "react-router-dom"
- import styled from "styled-components"
+ import styled from "@emotion/styled"
 
 
 
-const Nav=styled.div`
+const Nav=styled `
 width:100%;
 padding-left:1rem;
 height:100px;
@@ -19,7 +19,7 @@ background-color:green;
 const Loginlink=styled(Link)`
 
 `
-const Body=styled.div`
+const Body=styled `
 margin-left:0.5rem;
 
 `

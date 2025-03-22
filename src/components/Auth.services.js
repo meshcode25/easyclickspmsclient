@@ -12,10 +12,12 @@ const url= "http://localhost:8000/o/auth/"
     // , {headers:{authorization:`bearer${token}`}
    
     const login=(email, password)=>{
-    console.log(`here is the email and password from auth.services ${email,password}`)
+
+        console.log(`here is the email and password from auth.services ${email} ${ password}`)
+     
         return axios.post(url + "login/", {email,password})
         .then(
-            (response)=>{
+            (response)=>{   
                 if(response.data.accesstoken){
 
                     console.log("here is the token you have been waiting and secretly fearing " + response.data.accesstoken)

@@ -18,7 +18,7 @@ const logo= require ("./easyclickslogo.png")
 `
 */
 import React, {useState, useEffect} from "react"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import {VscMenu} from "react-icons/vsc"
 import * as MdIcons from "react-icons/md"
 import Sidebardata from "./Sidebardata"

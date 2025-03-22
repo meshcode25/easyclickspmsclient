@@ -46,23 +46,22 @@ function Test() {
 */
 
 import React,{useRef, useState, useEffect} from 'react'
-import styled from "styled-components"
+import styled from '@emotion/styled'
 
 
 const Div= styled.div`
     overflow:scroll;
-    width:900px;
-    height:500px;
+    width:95%;
+    height:90%;
     font-size:2.5rem;
     background-color:blue;
     color:white;
     text-align:left;
-    margin:20px auto;
+    border-radius:20px;
+    // margin:20px auto;
 `
 function Test() {
 
-
- 
   
   return (
     <Div styled={{backgroundColor:"green"}}>
@@ -70,4 +69,6 @@ function Test() {
      </Div>
     );
 }
+
+
 export default Test

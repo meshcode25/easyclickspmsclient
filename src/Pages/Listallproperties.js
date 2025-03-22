@@ -1,6 +1,6 @@
 import React, {useState, useContext,useRef, useEffect} from 'react'
 import {BrowserRouter as Router, Routes,Route, Link, Outlet, NavLink} from "react-router-dom"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import {Sharesidebar} from "../components/Sidebar"
 import Form from "react-validation/build/form"
 import CheckButton from "react-validation/build/button"

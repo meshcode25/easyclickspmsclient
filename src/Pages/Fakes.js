@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from "styled-components"
+import styled from "@emotion/styled"
 
 
 
@@ -24,16 +24,17 @@ const Div= styled.div`
     background-repeat:no-repeat;
     bacground-size:cover;
 `
-export const Fake = () => {
+
+ const Fake=()=>{
 
     return (
         <Div>
-           
-            
-        
+    
+            <p>What the fuck is going on with these styledd components shit</p>            
         </Div>
+     
     )
 }
 
 
-
+export default Fake;

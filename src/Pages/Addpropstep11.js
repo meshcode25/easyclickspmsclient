@@ -7,7 +7,7 @@
 
 import React, {useState, useContext,useRef, useEffect} from 'react'
 import {BrowserRouter as Router, Routes,Route, Link, Outlet, NavLink} from "react-router-dom"
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import {Sharesidebar} from "../components/Sidebar";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
@@ -15,6 +15,7 @@ import CheckButton from "react-validation/build/button";
 import {isEmail} from "validator"
 import {isMobilePhone} from 'validator';
 import { IoMdPricetags } from 'react-icons/io';
+import { sendpropertyDetails } from '../components/apicalls';
 
 // import {Fake} from "./Fake"
 
@@ -291,8 +292,8 @@ function Addpropstep11 (){
       console.log(priceperunit);
 
             
-      instancesofnumberofunits
-      instancesofnumberofroomsperunit
+      // instancesofnumberofunits
+      // instancesofnumberofroomsperunit
 
       priceperunit.map((index,eachpriceperunit)=>{
         console.log(index);
@@ -344,6 +345,7 @@ function Addpropstep11 (){
       console.log("here is the draft shit, its's working")
       e.preventDefault();
       if(disabled===false){
+
         const savedpricesperunit={
           "prop":priceperunit,
         }
@@ -401,22 +403,48 @@ function Addpropstep11 (){
       const caretakeremail=JSON.parse(localStorage.getItem("caretakeremail"));
       const caretakerphonenumber=JSON.parse(localStorage.getItem("caretakerphonenumber"));
 
-      console.log(proptype);
-      console.log(listingpurpose)
-      console.log(internalfeatures);
-      console.log(externalfeatures);
-      console.log(nearbyfeatures);
-      console.log(roomsperunit);
-      console.log(propertyname);
-      console.log(totalunits);
-      console.log(availableunits);
-      console.log(landlordname);
-      console.log(landlordemail);
-      console.log(landlordphonenumber);
-      console.log(caretakername);
-      console.log(caretakeremail);
-      console.log(caretakerphonenumber);
+      const savedpricesperunit=JSON.parse(localStorage.getItem("pricesperunit"))
 
+      console.log(proptype.saved.prop);
+      console.log(listingpurpose.saved.prop)
+      console.log(internalfeatures.saved.prop);
+      console.log(externalfeatures.saved.prop);
+      console.log(nearbyfeatures.saved.prop);
+      console.log(roomsperunit.saved.prop);
+      console.log(propertyname.savedpropname.prop);
+      console.log(totalunits.savedtotunits.prop);
+      console.log(availableunits.savedavaiunits.prop);
+      console.log(landlordname.prop);
+      console.log(landlordemail.prop);
+      console.log(landlordphonenumber.prop);
+      console.log(caretakername.prop);
+      console.log(caretakeremail.prop);
+      console.log(caretakerphonenumber.prop);
+      console.log(savedpricesperunit.savedpricesperunit.prop);
+
+
+      const propertytype=proptype.saved.prop;
+      const propertylistingpurpose=listingpurpose.saved.prop;
+      const propertyinternalfeatures=internalfeatures.saved.prop;
+      const propertyexternalfeatures=externalfeatures.saved.prop;
+      const propertynearbyfeatures=nearbyfeatures.saved.prop;
+      const propertyroomsperunit=nearbyfeatures.saved.prop;
+      const propertypriceperunit=savedpricesperunit.savedpricesperunit.prop;
+
+      
+      const propertynamed=propertyname.savedpropname.prop;
+      const propertytotalunits=totalunits.savedtotunits.prop;
+      const propertyavailableunits=availableunits.savedavaiunits.prop;
+      const propertylandlordname=landlordname.prop;
+      const propertylandlordemail=landlordemail.prop;
+      const propertylandlordphonenumber=landlordphonenumber.prop;
+      const propertycaretakername=caretakername.prop;
+      const propertycaretakeremail=caretakeremail.prop;
+      const propertycaretakerphonenumber=caretakerphonenumber.prop;
+
+
+      sendpropertyDetails(propertytype,propertylistingpurpose,propertyinternalfeatures,propertyexternalfeatures,propertynearbyfeatures,propertyroomsperunit,propertypriceperunit);
+      
 
 
 
@@ -429,7 +457,10 @@ function Addpropstep11 (){
       console.log("here is the draft shit, its's working")
       e.preventDefault();
 
-      localStorage.setItem("pricesperunit", JSON.stringify({savedcaretakername}))
+
+      const savedpricesperunit=JSON.parse(localStorage.getItem("pricesperunit"))
+
+      localStorage.setItem("pricesperunit", JSON.stringify({savedpricesperunit}))
         
 
       console.log("Die Inhanten liefern Knopfen is functionieren. Schrift 11, here unten gibt prices per unit") 

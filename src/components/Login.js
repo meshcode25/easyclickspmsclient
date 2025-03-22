@@ -6,10 +6,10 @@ import {isEmail} from "validator"
 import {FaUserCircle} from "react-icons/fa"
 import LoadingIcons from "react-loading-icons"
 import {login} from "./Auth.services"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import * as BsIcons from "react-icons/bs"
 import {Link} from "react-router-dom"
-// import { createGlobalStyle } from "styled-components"
+// import { createGlobalStyle } from "@emotion/styled"
 
 
 
@@ -174,13 +174,35 @@ const Login= ()=>{
                 .then(
                     (response)=>{
                         if(response.data.type==="successlogin"){
-                            console.log(response.data.message)
-                            setTimeout( ()=>{window.location.href=("/dashboard")} ,4000)
-                             window.location.href=("/dashboard");
-                             setMessage(response.data.message);
-                             setMessageColor(response.data.color)
-                             console.log("Valid email")
+
+                            setMessage(response.data.message);
+                            setMessageColor(response.data.color)
+                            console.log("Valid email")
                             setLoading(false)
+
+                            console.log(response.data.message)
+                            console.log("Here is the role of the user", response.data.user.role.roles)
+                            const roles=response.data.user.role.roles;
+                            
+                            if(roles.includes('LANDLORD')){
+                                setTimeout( ()=>{window.location.href=("/landlord")} ,10000)
+                            }
+                            else if(roles.includes('TENANT')){
+                                setTimeout( ()=>{window.location.href=("/tenant")} ,10000)
+
+                            }
+                            else if(roles.includes('REAL ESTATE AGENCY')){
+                                setTimeout( ()=>{window.location.href=("/agency")} ,10000)
+
+                            }
+                            else if(roles.includes('SERVICE PROVIDER')){
+                                setTimeout( ()=>{window.location.href=("/serviceprovider")} ,10000)
+
+                            }
+                            else if(roles.includes('CARETAKER')){
+                                setTimeout( ()=>{window.location.href=("/caretaker")} ,10000)
+
+                            }
     
                         }
                         else if(response.data.type==="invaliduser"){
@@ -232,7 +254,7 @@ const Login= ()=>{
                             <div >{message}</div>
                         </Messagediv>
 
-                    )}
+                )}
                 <Form method="" ref={form} onSubmit={handleLogin} >
                     <Emaildiv>
                         <Emailabel>Email:</ Emailabel >

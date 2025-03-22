@@ -1,7 +1,10 @@
 import React, {useState, useContext,useRef, useEffect} from 'react'
 // import multer from "multer"
-import {BrowserRouter as Router, Routes,Route, Link, Outlet, NavLink} from "react-router-dom"
-import styled from "styled-components";
+// import {BrowserRouter as Router, Routes,Route, Link, Outlet, NavLink} from "react-router-dom"
+import {BrowserRouter as Link} from "react-router-dom"
+
+
+import styled from "@emotion/styled";
 import {Sharesidebar} from "../components/Sidebar";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
@@ -9,6 +12,7 @@ import CheckButton from "react-validation/build/button";
 //import { urlValidate } from 'express-validators';
 import * as MdIcons from "react-icons/md"
 import * as BiIcons from "react-icons/bi"
+import { uploadImages } from '../components/apicalls';
 // import e from 'express';
 
 
@@ -176,17 +180,17 @@ wrap-direction:row;
 flex-wrap:wrap;
 
 `
-const Imagesdiv2=styled.div`
-background-image:url(${({src})=>{return src}});
-margin:0.05rem 0.1rem 0.6rem 0rem;
-background-position:center;
-height:170px;
-width:250px;
-background-repeat:no-repeat;
-background-size:250px 170px;
-background-color:blue;
-border-radius:10px;
-`
+// const Imagesdiv2=styled.div`
+// background-image:url(${({src})=>{return src}});
+// margin:0.05rem 0.1rem 0.6rem 0rem;
+// background-position:center;
+// height:170px;
+// width:250px;
+// background-repeat:no-repeat;
+// background-size:250px 170px;
+// background-color:blue;
+// border-radius:10px;
+// `
 const Imagediv=styled.div`
 background-image:url(${({src})=>{return src}});
 margin:0.05rem 0.1rem 0.6rem 0rem;
@@ -231,39 +235,39 @@ const Inputlabel=styled.label`
 }
 `
 
-const Invalidimage=()=>{
-  return <div style={{backgroundColor:"white", color:"red", padding:"0.25rem 0", fontSize:"1rem", margin: "0.25rem auto", width:"100%",}}>Invalid document upload Image</div> 
-}
-const Required=(value)=>{
-    if(!value)
-    return <div style={{backgroundColor:"white", color:"red", padding:"0.25rem 0", fontSize:"1rem", margin: "0.25rem auto", width:"100%",}}>Required</div>
+// const Invalidimage=()=>{
+//   return <div style={{backgroundColor:"white", color:"red", padding:"0.25rem 0", fontSize:"1rem", margin: "0.25rem auto", width:"100%",}}>Invalid document upload Image</div> 
+// }
+// const Required=(value)=>{
+//     if(!value)
+//     return <div style={{backgroundColor:"white", color:"red", padding:"0.25rem 0", fontSize:"1rem", margin: "0.25rem auto", width:"100%",}}>Required</div>
     
-}
+// }
 
-const Max=(value)=>{
-    if(value >1000)
-    return <div style={{backgroundColor:"white", color:"red", padding:"0.25rem 0", fontSize:"1rem", margin: "0.25rem auto", width:"100%",}}>Enter Reasonable Number</div>
+// const Max=(value)=>{
+//     if(value >1000)
+//     return <div style={{backgroundColor:"white", color:"red", padding:"0.25rem 0", fontSize:"1rem", margin: "0.25rem auto", width:"100%",}}>Enter Reasonable Number</div>
     
-}
+// }
 
-const Nuumber=(value)=>{
-  if(isNaN(value)){
-    return <div style={{backgroundColor:"white", color:"red", padding:"0.25rem 0", fontSize:"1rem", margin: "0.25rem auto", width:"100%",}}>Please Enter a Number</div>
-  }else{
-  }
-}
-
-
-
-const Color=()=>{
-
-}   
+// const Nuumber=(value)=>{
+//   if(isNaN(value)){
+//     return <div style={{backgroundColor:"white", color:"red", padding:"0.25rem 0", fontSize:"1rem", margin: "0.25rem auto", width:"100%",}}>Please Enter a Number</div>
+//   }else{
+//   }
+// }
 
 
-let clicked=[];
-let include;
-let colorarray=[];
-let includedincolorarray;
+
+// const Color=()=>{
+
+// }   
+
+
+// let clicked=[];
+// let include;
+// let colorarray=[];
+// let includedincolorarray;
 
 function Addpropstep8 (){
 
@@ -283,7 +287,31 @@ function Addpropstep8 (){
   else{
     console.log("STOREDPICS ARE THE FOLLOWING " + storedpics);
     pics=storedpics.saved.prop;
+
+
+    
+    // const makeblobs=async(urls)=>{
+          
+    //       const imagesurls=urls;
+          
+    //       // Convert blob URLs to Blob objects
+    //       const blobPromises = imagesurls.map(async (imageUrl, index) => {
+    //         const response = await fetch(imageUrl); // Fetch the actual blob data
+    //         const blob = await response.blob(); // Convert response to blob
+    //         pics.push(blob)
+    //         console.log(blob);
+    //         // formData.append("images", blob, `image_${index}.jpg`);
+    //     });
+    
+    //       // Wait for all blobs to be processed
+    //       await Promise.all(blobPromises);
+
+    // }
+
+    // makeblobs(urls);
+  
     console.log(pics);
+
   }
 
       const side=useContext(Sharesidebar);
@@ -333,6 +361,7 @@ function Addpropstep8 (){
     console.log(image);
 
     console.log(file.size);
+
       var reader = new FileReader();
 
       reader.onload = function (e) {
@@ -469,6 +498,8 @@ function Addpropstep8 (){
 
 
     const handleClick=(e)=>{
+
+            console.log("\n\n JUST CLICKED ON THE SUBMIT IMAGESS BUTTON \n\n")
             e.preventDefault();
             // console.log("here is the submit button")
 
@@ -478,17 +509,18 @@ function Addpropstep8 (){
                 console.log("no errors FOUND in the OUTSIDE PHOTOS form");
                 setDisabled(false);
                 saveDraft();
-                // setLoading(false)
-                // console.log(propertyname);
-                // console.log(totalunits);
-                // console.log(availableunits);
-                    
+
+                uploadImages(outsidephoto);   
+                
+
             }
             else{
                 console.log("show all errors ARISING FROM no Photos SELECTED")
                 setDisabled(true);
             }
     }
+
+
     
     const saveDraft=()=>{
       console.log("here is the OUTSIDEPHOTS draft shit, its's working")
@@ -499,8 +531,12 @@ function Addpropstep8 (){
         "prop":outsidephoto,
       }
       localStorage.setItem("outsidepics", JSON.stringify({saved}));
-        console.log("Die BILD Inhanten liefern Knopfen is functionieren. Schrift 8 FÜR BILDEN ")
-  } 
+      console.log("Die BILD Inhanten liefern Knopfen is functionieren. Schrift 8 FÜR BILDEN ")
+      
+
+      uploadImages(outsidephoto);   
+                
+    } 
 
 
   const saveBack=(e)=>{

@@ -6,11 +6,11 @@ import {isEmail} from "validator"
 import {FaUserCircle} from "react-icons/fa"
 import LoadingIcons from "react-loading-icons"
 import {passwordreset} from "./Auth.services"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import * as BsIcons from "react-icons/bs"
 
 
-const Registrationcontainer=styled.div`
+const Registrationcontainer=styled `
     background-color:#EFEBF3;
     padding:0rem;
     height:${({showpassword})=>showpassword ? `79vh`: `50vh`};
@@ -20,40 +20,40 @@ const Registrationcontainer=styled.div`
      `
   
 
-const Logincontainer=styled.div`
+const Logincontainer=styled `
    width:90%;
    height:100%;
    margin:0rem auto;
 
 
 `
-const Iconimage=styled.div`
+const Iconimage=styled `
     padding-top:1rem;
     font-size:${({showpassword})=>showpassword ? `5rem`: `6.5rem`};
     color:lightgrey;
 `
 
-const Emaildiv=styled.div`
+const Emaildiv=styled `
     padding-top:0.5rem;
     
 `
-const Emailabel=styled.div`
+const Emailabel=styled `
     text-align:start;
     margin:0 0 0.5rem 2.5rem;
     font-size:1.2rem;
 `
-const Passwordlabel=styled.div`
+const Passwordlabel=styled `
     text-align:start;
     margin:0.2rem 0rem 0.2rem 2.5rem;
     font-size:1.2rem;
 `
 
-const Passwordiv=styled.div`
+const Passwordiv=styled `
     padding-top:1.5rem;
     font-size:1rem;
 
 `
-const Showpassdiv=styled.div`
+const Showpassdiv=styled `
     display:flex;
     margin-left:2rem;
     width:82%;
@@ -68,16 +68,16 @@ const IconButton=styled.span`
 
 `
 
-const FormButtondiv=styled.div`
+const FormButtondiv=styled `
     padding-top:1.2rem;
 `
 
-const SpanIcon=styled.div`
+const SpanIcon=styled `
     color:black;
     font-size:1rem;
 `
 
-const Spanbutton=styled.div`
+const Spanbutton=styled `
      font-size:1rem;
 `
 const Button=styled.button`
@@ -91,11 +91,11 @@ const Button=styled.button`
     border:none;
     font-size:1rem;
 `
-const Messagediv=styled.div`
+const Messagediv=styled `
     width:50%;
     
 `
-const Compareerror=styled.div`
+const Compareerror=styled `
 `
 
 const Required=(value)=>{

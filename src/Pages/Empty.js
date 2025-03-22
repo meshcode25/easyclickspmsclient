@@ -1,6 +1,9 @@
 import React, {useState, useContext,useRef} from 'react'
-import styled from "styled-components"
-import {BrowserRouter as Router, Route,Routes, Link} from "react-router-dom"
+import styled from "@emotion/styled"
+// import {BrowserRouter as Router, Route,Routes, Link} from "react-router-dom"
+import {Link} from "react-router-dom"
+
+
 import {Sharesidebar} from "../components/Sidebar"
 import Form from "react-validation/build/form"
 import Input from "react-validation/build/input"
@@ -18,7 +21,7 @@ position
 
 `
 
-const Div= styled.div`
+const Div= styled.div `
     // overflow-y:scroll;
     overflow-x:none;
     // overflow:scroll;
@@ -29,7 +32,7 @@ const Div= styled.div`
   
     
 ` 
-const ListHeader=styled.div`
+const ListHeader=styled.div `
 position:fixed;
 display:flex;
 justify-content:space-between;
@@ -43,7 +46,7 @@ left:${({sidebar})=> sidebar ? "5.5%": "23.5%" };
 width:${({sidebar})=> sidebar ? "45%": "27.5%" };
 
 `
-const Headertitle=styled.div`
+const Headertitle=styled.div `
 font-size:${({sidebar})=> sidebar ? "2rem": "1.2rem" };
 font-weight:${({sidebar})=> sidebar ? "700": "600" };
 
@@ -66,7 +69,7 @@ const Draftsavebutton=styled.button`
 
 `
 
-const Progressbar =styled.div`
+const Progressbar =styled.div `
 display:flex;
 width:${({sidebar})=> sidebar ? "45%": "27.5%" };
 justify-content:space-between;
@@ -85,9 +88,9 @@ background-color:blue;
 `
 
 
-const list =styled.div`
+// const list =styled `
 
-`
+// `
 const Listbody=styled.div `
 position:fixed;
 top:${({sidebar})=> sidebar ? "140px": "127px" };
@@ -174,7 +177,7 @@ color:blue;
 `
 
 
-const Divtwo= styled.div`
+const Divtwo= styled.div `
     width:47%;
     position:fixed;
     top:53px;
@@ -188,7 +191,7 @@ const Divtwo= styled.div`
   
 `
 
-const Divthree= styled.div`
+const Divthree= styled.div `
     width:47%;
     position:fixed;
     top:53vh;
@@ -200,24 +203,24 @@ const Divthree= styled.div`
     font-size:2rem;
   
 `
- const Addpropertycontainer= styled.div`
+ const Addpropertycontainer= styled.div `
  margin:0 auto;
  width:95%;
  padding:1rem 0.5rem;
 
  
  `
- const Propertycontainer=styled.div`
+ const Propertycontainer=styled.div `
  
  `
- const Listingtype=styled.div`
+ const Listingtype=styled.div `
  margin:1rem 0;
 
  `
- const Propertytypediv=styled.div`
+ const Propertytypediv=styled.div `
  margin:1rem 0;
  `
- const Numberofroomsdiv=styled.div`
+ const Numberofroomsdiv=styled.div `
  margin:1rem 0;
  width:100%;
  `
@@ -226,24 +229,24 @@ const Divthree= styled.div`
   font-weight:800;
 
  `
- const Availableinsidefeaturesdiv=styled.div`
+ const Availableinsidefeaturesdiv=styled.div `
  margin:1rem 0;
  `
- const Availableoutsidefeaturesdiv=styled.div`
+ const Availableoutsidefeaturesdiv=styled.div `
  margin:1rem 0;
  `
-  const Availablenearbyfeaturesdiv=styled.div`
+  const Availablenearbyfeaturesdiv=styled.div `
  margin:1rem 0;
  `
 
- const Nameofproperty=styled.div`
+ const Nameofproperty=styled.div `
  margin:1rem 0;
  `
  const Totalnoofunitsdiv=styled.div`
  margin:1rem 0;
  `
 
-const Numberofunitsavailable=styled.div`
+const Numberofunitsavailable=styled.div `
 margin:1rem 0;
 `
 
@@ -256,7 +259,7 @@ const Propertydescriptionheaderdiv=styled.div`
 `
    
 
-const Propertydescriptionareadiv=styled.div`
+const Propertydescriptionareadiv=styled.div `
 
 `
 
@@ -327,6 +330,7 @@ function Empty( ){
 
 
     const [roomsperunit, setRoomsperunit]= useState()
+
     const [listingtype, setListingtype]= useState()
     const [propertytype, setPropertype]=useState();
     const [totalunits, setTotalunits]=useState();
@@ -334,6 +338,8 @@ function Empty( ){
     const [availableunits, setAvailableunits]=useState()
     const [propertydetailsdescription, setPropertydetailsdescription]=useState(); 
     const [descriptionheading, setDescriptionheading]=useState();
+
+
     const [insidefeatures, setInsidefeatures]=useState();
     const [outsidefeatures, setOutsidefeatures]=useState();
     const [nearbyfacilities, setNearbyfacilities]=useState();
@@ -579,7 +585,7 @@ function Empty( ){
           </Divtwo>
 
           <Divthree sidebar={side ? 1:0}> 
-          <iframe width="100%" height="100%" id="gmap_canvas" src="https://maps.google.com/maps?q=mombasa%20&t=k&z=13&ie=UTF8&iwloc=&output=embed" frameBorder="0" scrolling="yes" ></iframe>
+          {/* <iframe  width="100%" height="100%" id="gmap_canvas" src="https://maps.google.com/maps?q=mombasa%20&t=k&z=13&ie=UTF8&iwloc=&output=embed" frameBorder="0" scrolling="yes" ></iframe> */}
           </Divthree>
         </Listpropdiv>
 

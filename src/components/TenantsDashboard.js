@@ -8,7 +8,7 @@ import styled from "@emotion/styled"
 import {VscMenu} from "react-icons/vsc"
 import * as MdIcons from "react-icons/md"
 //import Empty from "../Pages/Empty"
-import Sidebardata from "./Sidebardata"
+import Tenantsidebardata from "./Tenantsidebardata"
 import { Link, Outlet} from "react-router-dom"
 import * as RiIcons from "react-icons/ri"
 // import Submenu from "./Submenu"
@@ -27,13 +27,17 @@ height:100%;
 top:0;
 left:0; 
 background-color:#F8F8F8;
+
+// background-color:yellow;
+
+
 `
 const Nav = styled.div`
   // display:grid;
   // grid-template-columns: ${({sidebar})=> sidebar ? `4% 96% ` : `22.5% 77.5%`} ;
-  // grid-template-rows:600px  auto ;
+  // grid-template-rows:50px  auto ;
   background-color:blue;
-
+  // display:none;
 
 `
 const Navigation=styled.div  `
@@ -211,18 +215,19 @@ font-weight:bold;
 
 
 
-
 const SidebarNav=styled.div  `
-position:fixed;
+position:absolute;
 overflow:${({sidebar})=>sidebar?"hidden": "scroll"};
 top:${({sidebar})=>sidebar? "56px":"58px"};
 width:${({sidebar})=> sidebar ? "3.5%": "21.5%"};
-display:grid;
+// display:grid;
 height:88vh;
 color:violet;
 left:${({sidebar})=> sidebar ? "0": "0"};
 background-color:black;
 box-sizing:border-box;
+
+z-index:100;
 // border-radius:20px;
 // overflow-x:hidden;
 
@@ -245,7 +250,51 @@ box-sizing:border-box;
   // border-radius: 20px;       /* roundness of the scroll thumb */
   // border: 1px solid orange;  /* creates padding around scroll thumb */
 }
+
+
+  @media (max-width: 768px) {
+    width:${({sidebar})=> sidebar ? "10.5%": "70.5%"};
+
+  }
+
+
 `
+
+
+// const SidebarNav=styled.div  `
+// position:fixed;
+// overflow:${({sidebar})=>sidebar?"hidden": "scroll"};
+// top:${({sidebar})=>sidebar? "56px":"58px"};
+// width:${({sidebar})=> sidebar ? "3.5%": "21.5%"};
+// display:grid;
+// height:88vh;
+// color:violet;
+// left:${({sidebar})=> sidebar ? "0": "0"};
+// background-color:black;
+// box-sizing:border-box;
+// // border-radius:20px;
+// // overflow-x:hidden;
+
+// ::-webkit-scrollbar {
+//   width: 7.5px;               /* width of the entire scrollbar */
+//   height:7.5px;
+// }
+
+// ::-webkit-scrollbar-track {
+//   background-color: #F5F5F5;        /* color of the tracking area */
+// }
+
+// ::-webkit-scrollbar-thumb {
+//   background-color: gray;    /* color of the scroll thumb */
+//   border-radius: 20px;       /* roundness of the scroll thumb */
+//   // border: 1px solid orange;  /* creates padding around scroll thumb */
+// }
+// ::-webkit-scrollbar-corner {
+//   background-color: #F8F8F8;    /* color of the scroll thumb */
+//   // border-radius: 20px;       /* roundness of the scroll thumb */
+//   // border: 1px solid orange;  /* creates padding around scroll thumb */
+// }
+// `
 // const Scroll=styled.div`
 // background-color:violet;
 // display:flex;
@@ -269,6 +318,7 @@ height:90px;
 display:flex;
 align-items:center;
 color:white;
+font-size:2px;
 text-align:center;
 background-color:purple;
 border-top-right-radius:16%;
@@ -278,6 +328,18 @@ border-bottom-right-radius:16%;
   cursor:pointer;
 
 }
+
+
+
+@media (max-width: 768px) {
+  width:${({sidebar})=> sidebar ? "17px": "18px"};
+  left:${({sidebar})=>sidebar ? "10.5%": "70%"}  ;
+  height:${({sidebar})=> sidebar ? "40px": "40px"};
+  // background-color:yellow; 
+  font-size:2px;
+}
+
+
 `
 
 const Switchdiv= styled.div`
@@ -286,12 +348,27 @@ const Switchdiv= styled.div`
  border-radius:20px;
  left:${({sidebar})=> sidebar ? "5.2%": "23.2%"};
  width:${({sidebar})=> sidebar ? "93.8%": "75.8%"};
+
+
+//  left:${({sidebar})=> sidebar ? "5.2%": "5.2%"};
+//  width:${({sidebar})=> sidebar ? "93.8%": "93.8%"};
+
+
  height:86vh;
- background-color:white;
+ background-color:green;
  
  //  border:3px solid black;
 //  overflow-x:hidden;
 //  overflow-y:scroll;
+// display:none;
+
+
+
+@media (max-width: 768px) {
+  width:${({sidebar})=> sidebar ? "97%": "97%"};
+  left:${({sidebar})=>sidebar ? "15%": "15%"}
+}
+
 `
 
 const Submenuwrap= styled(Link)`
@@ -392,18 +469,12 @@ const Dropdownsidebarlebel= styled.span`
 ` 
 export const  Sharesidebar=  createContext();
   
-const Sidebar = () => {
+const TenantsDashboard = () => {
   const [sidebar, setSidebar ]= useState(false);
   const [height, setHeight]=useState()
   const [sub, setSub]= useState(false)
   const [submenu, setSubmenu]= useState()
   const [username, setuserName]=useState()
-
-  const [name, setName]=useState();
-
-  const [email,setEmail]=useState();
-
-
   // const [accesstoken, setaccessToken]=useState();
   // const [refreshToken, setRefreshToken]=useState();
 
@@ -486,8 +557,6 @@ const Sidebar = () => {
     // console.log(decodedaccesstoken);
     console.log(decodedrefreshtoken);
 
-    // let name;
-    // let email;
 
     //  if(logedin===null){
     //      setaccessToken();
@@ -507,9 +576,10 @@ const Sidebar = () => {
 
   useEffect(()=>{
 
-
+   
     let name;
-    let email;
+    let email; 
+
 
     if(logedin===null){
       setloggedIn(false)
@@ -525,17 +595,10 @@ const Sidebar = () => {
 
       if(decodeduser.user.email){
         console.log(decodeduser.user.email);
-        
         setloggedIn(true);
+        email = decodeduser.user.email;
 
-        setEmail( decodeduser.user.email);
-
-        email=decodeduser.user.email;
-        
         name= email.substring(0, email.lastIndexOf("@"))
-
-        setName(email.substring(0,email.lastIndexOf("@")))
-
         setuserName(name)
     
          console.log("show isLogged In" + isloggedin)
@@ -552,6 +615,8 @@ const Sidebar = () => {
   
   
   console.log("show isLogged In?" + isloggedin)
+
+
 
   return(
   <King style={{}}>
@@ -622,7 +687,7 @@ const Sidebar = () => {
     </Navigation>
     {sidebar?
               <SidebarNav style={{zIndex:"10", backgroundColor:""}} sidebar={sidebar? 1: 0}>        
-                          {Sidebardata.map((menu,index) => {
+                          {Tenantsidebardata.map((menu,index) => {
                
                             return (
                                 <div  sub={sub?1:0} style={{padding:"0", }} key={index}  >
@@ -681,38 +746,38 @@ const Sidebar = () => {
       <SidebarNav sidebar={sidebar? 1: 0}>        
 
           
-      {Sidebardata.map((menu,index) => {
-          // return <Submenu key={index} menu={menu} number={index} to="#"/       
-        return (
-            <div key={index} style={{margin:"0", padding:"0"}}>
-              <Submenuwrap sidebar={sidebar? 1:0} onClick={()=>{showSubmenu(index)}} sub={sub?1:0} to={!menu.submenu && menu.path}>
-              {/* showSubmenu */}
-                <div style={{padding:"0", margin:"0"}}>
-                  <Span >{menu.icon} </Span> 
-                  <Sidebarlebel >{menu.title}</Sidebarlebel>
-                </div>
-                <Dropicon style={{color:"violet", marginRight:"0.7rem"}}>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
-                  {(submenu===index && menu.submenu && sub) ? menu.iconOpen: menu.submenu? menu.iconClosed: null   }
-                </Dropicon>
-             </Submenuwrap> 
-              {(submenu===index && menu.submenu && sub) && menu.submenu.map((dropdownmenu, index) =>  {
-                    return(                      
-                      <Dropdownmenu sidebar={sidebar? 1:0} dropdownmenu={dropdownmenu} key={index+ 5} >
-                        <Eachdropdowndiv to={dropdownmenu.path} >
-                          <div>                          
-                          <Dropdownspan >{dropdownmenu.icon} </Dropdownspan>
-                          <Dropdownsidebarlebel>{dropdownmenu.title}</Dropdownsidebarlebel>
-                          </div>
-                        </Eachdropdowndiv>
-                      </Dropdownmenu> 
-                    )             
-                })    
-            }         
-          </div>
-          )
+        {Tenantsidebardata.map((menu,index) => {
+            // return <Submenu key={index} menu={menu} number={index} to="#"/       
+          return (
+              <div key={index} style={{margin:"0", padding:"0"}}>
+                <Submenuwrap sidebar={sidebar? 1:0} onClick={()=>{showSubmenu(index)}} sub={sub?1:0} to={!menu.submenu && menu.path}>
+                {/* showSubmenu */}
+                  <div style={{padding:"0", margin:"0"}}>
+                    <Span >{menu.icon} </Span> 
+                    <Sidebarlebel >{menu.title}</Sidebarlebel>
+                  </div>
+                  <Dropicon style={{color:"violet", marginRight:"0.7rem"}}>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+                    {(submenu===index && menu.submenu && sub) ? menu.iconOpen: menu.submenu? menu.iconClosed: null   }
+                  </Dropicon>
+              </Submenuwrap> 
+                {(submenu===index && menu.submenu && sub) && menu.submenu.map((dropdownmenu, index) =>  {
+                      return(                      
+                        <Dropdownmenu sidebar={sidebar? 1:0} dropdownmenu={dropdownmenu} key={index+ 5} >
+                          <Eachdropdowndiv to={dropdownmenu.path} >
+                            <div>                          
+                            <Dropdownspan >{dropdownmenu.icon} </Dropdownspan>
+                            <Dropdownsidebarlebel>{dropdownmenu.title}</Dropdownsidebarlebel>
+                            </div>
+                          </Eachdropdowndiv>
+                        </Dropdownmenu> 
+                      )             
+                  })    
+              }         
+            </div>
+            )
         })}  
 
-</SidebarNav>
+      </SidebarNav>
  
       }
     {/* <Scroll sidebar={sidebar? 1: 0} onClick={showSidebar}>
@@ -735,4 +800,4 @@ const Sidebar = () => {
     )
 };
 
-export default Sidebar;
+export default TenantsDashboard;

@@ -1,10 +1,13 @@
 import React, {useState, useContext,useRef, useEffect} from 'react'
-import {BrowserRouter as Router, Routes,Route, Link, Outlet, NavLink} from "react-router-dom"
-import styled from "styled-components"
+// import {BrowserRouter as Router, Routes,Route, Link, Outlet, NavLink} from "react-router-dom"
+import {Link} from "react-router-dom"
+
+
+import styled from "@emotion/styled"
 import {Sharesidebar} from "../components/Sidebar"
 import Form from "react-validation/build/form"
 import CheckButton from "react-validation/build/button"
-import {Fake} from "./Fake"
+// import {Fake} from "./Fake"
 
 const Breadcrumbs=styled.div`
 position:fixed;
@@ -167,7 +170,7 @@ function Addpropstep1 (){
     else{
       console.log("oh fuck the shit is empty")
     }
-  },[])
+  })
 
 
   useEffect(()=>{
